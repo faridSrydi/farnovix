@@ -1,0 +1,43 @@
+# Environment
+.env
+*.env.local
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+
+# Test results
+tests/results/
+*.csv
+*.json.results
+
+# Secrets
+*.pem
+*.key
