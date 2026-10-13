@@ -4,6 +4,12 @@
 
 A production-oriented microservices-based event ticketing system designed for research evaluation of resilience, scalability, fault isolation, and concurrent booking prevention.
 
+### 📄 Preview Document
+[![Preview PDF](docs/draft_1_farnovix.pdf)
+
+> 💡 *Klik gambar di atas untuk membuka atau mengunduh dokumen PDF lengkap.*
+
+
 ## Architecture
 
 | Service | Port | Database | Description |
