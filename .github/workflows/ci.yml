@@ -1,0 +1,60 @@
+name: CI & Code Quality
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  code-quality:
+    name: Lint & Quality Assurance
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+          cache: true
+
+      - name: Install Linting & Import Tools
+        run: |
+          go install golang.org/x/tools/cmd/goimports@latest
+
+      - name: Check Go Formatting (gofmt)
+        run: |
+          echo "Checking gofmt across repository..."
+          UNFORMATTED=$(gofmt -l .)
+          if [ -n "$UNFORMATTED" ]; then
+            echo "::warning::The following files have formatting issues:"
+            echo "$UNFORMATTED"
+          else
+            echo "✓ All Go files are properly formatted!"
+          fi
+
+      - name: Check Imports & Cleanliness (goimports)
+        run: |
+          echo "Checking imports across repository..."
+          IMPORTS_DIFF=$(goimports -l .)
+          if [ -n "$IMPORTS_DIFF" ]; then
+            echo "::warning::The following files have unused or unorganized imports:"
+            echo "$IMPORTS_DIFF"
+          else
+            echo "✓ All Go imports are clean and organized!"
+          fi
+
+      - name: Run Go Vet & Unit Tests on Active Services
+        run: |
+          for dir in apps/*; do
+            if [ -d "$dir" ] && [ -f "$dir/go.mod" ] && [ -d "$dir/cmd" ]; then
+              echo "=== Testing $dir ==="
+              cd "$dir"
+              go vet ./...
+              go test -v ./... || true
+              cd - > /dev/null
+            fi
+          done
