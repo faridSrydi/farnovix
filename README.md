@@ -4,7 +4,7 @@
 
 A production-oriented microservices-based event ticketing system designed for research evaluation of resilience, scalability, fault isolation, and concurrent booking prevention.
 
-### 📄 Pratinjau Dokumen Laporan
+### 📄 Report Document Review
 
 | Page 1 (Abstract) | Page 2 (Architecture) | Page 3 (References) |
 | :---: | :---: | :---: |
