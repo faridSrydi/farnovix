@@ -6,7 +6,7 @@ A production-oriented microservices-based event ticketing system designed for re
 
 ### 📄 Pratinjau Dokumen Laporan
 
-| Halaman 1 (Abstrak) | Halaman 2 (Arsitektur) | Halaman 3 (Daftar Pustaka) |
+| Page 1 (Abstract) | Page 2 (Architecture) | Page 3 (References) |
 | :---: | :---: | :---: |
 | [![Halaman 1](docs/draft_1_farnovix-1.png)](docs/draft_1_farnovix.pdf) | [![Halaman 2](docs/draft_1_farnovix-2.png)](docs/draft_1_farnovix.pdf) | [![Halaman 3](docs/draft_1_farnovix-3.png)](docs/draft_1_farnovix.pdf) |
 
